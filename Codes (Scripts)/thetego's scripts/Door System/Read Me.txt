@@ -1,0 +1,16 @@
+/These codes written for FPS
+/Written by thetego Instagram(@muratcan.thetego) Discord(thetego#1938)
+/To join our Discord server (https://discord.gg/HTP5b4X)
+
+Setup instructions:
+
+
+*Attach CameraHit.cs to your camera (You can assign you crosshair to Cursor (Image))
+
+*Attach DoorSystem.cs to your door gameobject (if it has a parent as pivot,attach to parent 
+but you should add collider to parent. Otherwise you need to attach to directly mesh object. And the last thing
+you need to add a tag called "Door" to the gameobject which has the script.
+
+*Door open/close key is "E".
+
+*The Angle variable in the DoorSystem.cs should be adjusted according to rotation values of door object.

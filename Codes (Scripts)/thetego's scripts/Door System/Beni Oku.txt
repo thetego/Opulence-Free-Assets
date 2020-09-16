@@ -1,0 +1,17 @@
+/Kodlar FPS türü ile uyuludur
+/thetego tarafından kodlanmıştır Instagram(@muratcan.thetego) Discord(thetego#1938)
+/Discord sunucumuza katılmak için (https://discord.gg/HTP5b4X)
+
+kurulum:
+
+
+*CameraHit.cs kodunu kameraya atayın. (Cursor parametresine crosshairinizi atayabilirsiniz (Image))
+
+*DoorSystem.cs kodunu kapı objesine atayın. (Pivot amacı ile parent objesi var ise ,kodu parent objesine atayın 
+ama parent objesine collider eklemelisiniz. Eğer parent objesi pivot amacında değil ise direk mesh objesine atayın.
+Son olarak scripti içeren objeye "Door" isminde tag eklemeniz gerek.
+
+*Kapı "E" tuşu ile açılır kapanır.
+
+*DoorSystem.cs kodundaki Angle parametresini sizin kapı objenizin rotasyon değerine göre
+manuel ayarlamanız gerekmektedir.
