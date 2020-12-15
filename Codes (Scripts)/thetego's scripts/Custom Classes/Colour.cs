@@ -124,7 +124,7 @@ public class Colour
         }
         
     }
-    public static void CreateColour (string name,byte r, byte g, byte b, byte a)
+    public static void CreateColour (string name,byte r, byte g, byte b, byte a) //Creates and saves a colour
     {
         if(Directory.Exists(Application.dataPath+"/ColourClass"))
         {
@@ -172,12 +172,12 @@ public class Colour
             File.AppendAllText(Application.dataPath+"/ColourClass"+"/CustomColours.txt",name+" "+r.ToString()+" "+g.ToString()+" "+b.ToString()+" "+a.ToString());
         }
     }
-    public static void Reset ()
+    public static void Reset () //Resets all saved colours;
     {
         File.Delete(Application.dataPath+"/ColourClass"+"/CustomColours.txt");
         Colours.Clear();
     }
-    public Colour (string _name, byte _r,byte _g, byte _b, byte _a)
+    public Colour (string _name, byte _r,byte _g, byte _b, byte _a) //Custom colour structure
     {
         name = _name;
         r=_r;
