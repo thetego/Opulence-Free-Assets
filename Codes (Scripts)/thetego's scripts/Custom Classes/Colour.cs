@@ -15,6 +15,7 @@ public class Colour
         public string name; //name for a new name to save
         public byte r,g,b,a; //r,g,b,a values for a new colour to save (0-255)
         public static List<Colour> Colours {get;} = new List<Colour>(); //list of saved colours
+        static int Length; //length of saved colours list
     #endregion
     #region CustomColors
         public static Color32 Red {get;} = new Color32(255,0,0,255);
@@ -61,11 +62,11 @@ public class Colour
             Colours.Add(new Colour(name,r,g,b,a));
         }
     }
-    static int Length; //length of saved colours list
     public static Color32 GetColour(string ColourName) //calls a saved colour
     {
        // File.Decrypt(Application.dataPath+"/ColourClass"+"/CustomColours.txt");
         Color32 tempColor = new Color32();
+        bool found=false;
         foreach (Colour item in Colours)
         {
             if (item.name == ColourName)
@@ -74,12 +75,15 @@ public class Colour
                 tempColor.g = item.g;
                 tempColor.b = item.b;
                 tempColor.a = item.a;
+                found=true;
+                Length=0;
+                break;
             }
             else 
             {
                 Length++;
             }
-            if (Length>Colours.Count)
+            if (Length>Colours.Count&&!found)
             {
                 Debug.LogError("There is no declared colour called "+"'"+ColourName+"'"+" in colour list.");
                 Length=0;
@@ -171,6 +175,26 @@ public class Colour
             File.Create(Application.dataPath+"/ColourClass"+"/CustomColours.txt");
             File.AppendAllText(Application.dataPath+"/ColourClass"+"/CustomColours.txt",name+" "+r.ToString()+" "+g.ToString()+" "+b.ToString()+" "+a.ToString());
         }
+    }
+    public static Color32 ConvertToColour32 (Color color) //Converts the Color(0-1.0) to Color32(0-255)
+    {
+        
+        int r = Mathf.RoundToInt(color.r*255);
+        int g = Mathf.RoundToInt(color.g*255);
+        int b = Mathf.RoundToInt(color.b*255);
+        int a = Mathf.RoundToInt(color.a*255);
+        Color32 clr = new Color32((byte)r,(byte)g,(byte)b,(byte)a);
+        return clr;
+    }
+    public static Color ConvertToColour (Color32 color) //Converts the Color32(0-255) to Color(0-1.0)
+    {
+        
+        float r = (float)color.r/255;
+        float g = (float)color.g/255;
+        float b = (float)color.b/255;
+        float a = (float)color.a/255;
+        Color clr = new Color(r,g,b,a);
+        return clr;
     }
     public static void Reset () //Resets all saved colours;
     {
