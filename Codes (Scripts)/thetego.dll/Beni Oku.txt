@@ -1,0 +1,2 @@
+Bu dll dosyasının için bütün sınıflarım mevcut.
+(CustomClasses klasöründeki gibi, zamanla güncelleyeceğim)
